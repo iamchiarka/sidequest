@@ -36,5 +36,3 @@ the ADRs only record decisions that were actually made.
 - **The Flutter SDK isn't installed** on the development machine yet, so
   `mobile/` only contains scaffold instructions, not an actual Flutter
   project (see [ADR 0001](adr/0001-mobile-framework.md)).
-- **`gitleaks` pre-commit hook** mentioned in ADR 0012/0013 as a planned
-  safety net hasn't been added yet.
