@@ -68,6 +68,17 @@ See [mobile/README.md](mobile/README.md) — requires the Flutter SDK
 installed natively (not in Docker) since it needs emulator/simulator and
 USB device access.
 
+### Secret scanning
+
+This repo ships a pre-commit hook that blocks commits containing likely
+secrets, via [gitleaks](https://github.com/gitleaks/gitleaks#installing).
+After cloning, install gitleaks and point git at the repo's tracked hooks
+once:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## License
 
 AGPL-3.0 — see [LICENSE](LICENSE). Chosen specifically so that anyone

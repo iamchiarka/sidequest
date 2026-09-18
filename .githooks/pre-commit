@@ -1,0 +1,11 @@
+#!/bin/sh
+# Blocks a commit if it introduces a secret. Requires gitleaks on PATH:
+# https://github.com/gitleaks/gitleaks#installing
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "pre-commit: gitleaks not found on PATH, skipping secret scan." >&2
+    echo "Install it: https://github.com/gitleaks/gitleaks#installing" >&2
+    exit 0
+fi
+
+gitleaks protect --staged --redact -v
