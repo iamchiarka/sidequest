@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "bmewburn.vscode-intelephense-client",
+    "ryannaddy.laravel-artisan",
+    "amiralizadeh9480.laravel-extra-intellisense",
+    "onecentlin.laravel-blade",
+    "shufo.vscode-blade-formatter",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "editorconfig.editorconfig"
+  ]
+}

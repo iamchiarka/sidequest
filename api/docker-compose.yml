@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${DB_DATABASE:-sidequest}
+      POSTGRES_USER: ${DB_USERNAME:-sidequest}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-secret}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  # One-off helper for running Composer without installing PHP on the host, e.g.:
+  #   docker compose run --rm composer create-project laravel/laravel . "^11.0"
+  #   docker compose run --rm composer install
+  composer:
+    image: composer:2
+    volumes:
+      - .:/app
+    working_dir: /app
+    entrypoint: composer
+
+volumes:
+  pgdata:
